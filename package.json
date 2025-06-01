@@ -4,14 +4,17 @@
     "packages/common/**",
     "packages/domain",
     "packages/application",
-    "packages/consumer"
+    "packages/consumer",
+    "packages/tests/**"
   ],
   "scripts": {
     "clean": "npm run clean --workspaces",
     "build:all": "npm run build --workspaces",
-    "build": "npm run clean && npm run build:all"
+    "build": "npm run clean && npm run build:all",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "prettier": "^3.5.3",
     "rimraf": "^6.0.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 100,
+  "bracketSpacing": true, // Print spaces between brackets in object literals: { foo: bar },
+  "arrowParens": "always" // Always include parens for arrow functions: (x) => x
+}
