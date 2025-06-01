@@ -1,0 +1,27 @@
+{
+  "name": "@chorros-associated/chorro-pets-domain",
+  "version": "0.0.1",
+  "description": "App domain for selling and buying brainrot pets",
+  "keywords": [
+    "black",
+    "market",
+    "brainrot",
+    "pet"
+  ],
+  "license": "ISC",
+  "author": "SotalvaroO",
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@chorros-associated/chorro-pets-common-domain": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
