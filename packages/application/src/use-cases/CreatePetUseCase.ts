@@ -1,5 +1,5 @@
 import { Pet, PetRepository } from "@chorros-associated/chorro-pets-domain";
-import { BaseUseCaseImpl } from "../../../common/common-domain/dist";
+import { BaseUseCaseImpl } from "@chorros-associated/chorro-pets-common-domain";
 
 export class CreatePetUseCase extends BaseUseCaseImpl<Pet, Pet> {
   constructor(private readonly _petRepository: PetRepository) {

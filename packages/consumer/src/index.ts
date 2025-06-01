@@ -1,7 +1,7 @@
 import { CreatePetUseCase } from "@chorros-associated/chorro-pets-application";
 import { BaseUseCase } from "@chorros-associated/chorro-pets-common-domain";
 import { Pet, PetRepository } from "@chorros-associated/chorro-pets-domain";
-import { PetId } from "@chorros-associated/chorro-pets-domain/dist/valueobjects/PetId";
+import { PetId } from "@chorros-associated/chorro-pets-domain/";
 
 class PetRepositoryImpl implements PetRepository {
   async save(entity: Pet): Promise<Pet> {
