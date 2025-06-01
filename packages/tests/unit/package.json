@@ -1,0 +1,27 @@
+{
+  "name": "@chorros-associated/chorro-pets-unit-tests",
+  "version": "0.0.1",
+  "description": "Unit tests for the Chorro Pets application",
+  "keywords": [
+    "black",
+    "market",
+    "brainrot",
+    "pet"
+  ],
+  "license": "ISC",
+  "author": "SotalvaroO",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rimraf dist",
+    "build": "echo 'No build step required for unit tests'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "ts-jest": "^29.3.4",
+    "ts-node": "10.9.2"
+  }
+}
