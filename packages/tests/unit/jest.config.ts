@@ -1,4 +1,4 @@
-import type { JestConfigWithTsJest } from 'ts-jest';
+import type { JestConfigWithTsJest } from 'ts-jest'
 
 const jestConfig: JestConfigWithTsJest = {
   preset: 'ts-jest',
@@ -12,6 +12,6 @@ const jestConfig: JestConfigWithTsJest = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   verbose: true,
   // setupFiles: ['dotenv/config'],
-};
+}
 
-export default jestConfig;
+export default jestConfig
