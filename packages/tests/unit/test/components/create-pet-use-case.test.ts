@@ -1,5 +1,5 @@
 import { CreatePetUseCase } from '@chorros-associated/chorro-pets-application';
-import { Pet, PetId, PetRepository } from '@chorros-associated/chorro-pets-domain';
+import { Pet, PetDomainException, PetRepository } from '@chorros-associated/chorro-pets-domain/';
 
 describe('CreatePetUseCase', () => {
   const mockPetRepository: jest.Mocked<PetRepository> = {
@@ -9,12 +9,14 @@ describe('CreatePetUseCase', () => {
   const createPetUseCase = new CreatePetUseCase(mockPetRepository);
 
   it('should create a pet successfully', async () => {
-    const petData = new Pet({
-      _name: 'Frankini musolini',
-      _type: 'Dictador',
-      _age: 29,
-      id: 'DOM',
-    });
+    const petData = new Pet(
+      {
+        _name: 'Frankini musolini',
+        _type: 'Dictador',
+        _age: 29,
+      },
+      'DOM'
+    );
 
     mockPetRepository.save.mockResolvedValueOnce(petData);
 
@@ -22,5 +24,19 @@ describe('CreatePetUseCase', () => {
 
     expect(result).toEqual(petData);
     expect(mockPetRepository.save).toHaveBeenCalledWith(petData);
+  });
+
+  it('should throw a PetDomainException', async () => {
+    const petData = new Pet(
+      {
+        _name: 'Illeagle ilegalini',
+        _type: 'Presidiaria',
+        _age: 16,
+      },
+      'DOM'
+    );
+    await expect(() => createPetUseCase.execute(petData)).rejects.toThrow(
+      new PetDomainException(`Pet ${petData.name} is ill eagle`)
+    );
   });
 });

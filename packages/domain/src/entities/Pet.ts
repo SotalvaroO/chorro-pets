@@ -1,5 +1,6 @@
 import { BaseEntity } from '@chorros-associated/chorro-pets-common-domain';
 import { PetId } from '../valueobjects/PetId';
+import { PetDomainException } from '../exceptions/PetDomainException';
 
 interface PetProps {
   _name: string;
@@ -12,8 +13,7 @@ export class Pet extends BaseEntity<PetId> {
     private props: PetProps,
     id: string
   ) {
-    super();
-    super.id = new PetId(id);
+    super(new PetId(id));
   }
 
   public get age(): number {
@@ -36,5 +36,14 @@ export class Pet extends BaseEntity<PetId> {
   }
   public sayName(): void {
     console.log(this.name);
+  }
+
+  public override async validate(): Promise<void> {
+    await super.validate();
+    if (!this.isAdult()) throw new PetDomainException(`Pet ${this.name} is ill eagle`);
+  }
+
+  private isAdult() {
+    return this.age >= 18;
   }
 }

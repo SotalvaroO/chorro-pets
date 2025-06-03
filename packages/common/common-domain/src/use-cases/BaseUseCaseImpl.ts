@@ -1,6 +1,9 @@
+import { BaseRequest } from '../entities/BaseRequest';
 import { BaseUseCase } from './BaseUseCase';
 
-export abstract class BaseUseCaseImpl<Request, Response> implements BaseUseCase<Request, Response> {
+export abstract class BaseUseCaseImpl<Request extends BaseRequest, Response>
+  implements BaseUseCase<Request, Response>
+{
   public async execute(request: Request): Promise<Response> {
     await this.validateRequest(request);
     await this.preProcess(request);
@@ -11,7 +14,9 @@ export abstract class BaseUseCaseImpl<Request, Response> implements BaseUseCase<
 
   protected abstract executeUseCase(request: Request): Promise<Response>;
 
-  protected async validateRequest(request: Request): Promise<void> {}
+  protected async validateRequest(request: Request): Promise<void> {
+    await request.validate();
+  }
 
   protected async preProcess(request: Request): Promise<void> {}
 

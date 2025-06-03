@@ -3,6 +3,8 @@ import type { JestConfigWithTsJest } from 'ts-jest';
 const jestConfig: JestConfigWithTsJest = {
   preset: 'ts-jest',
   testEnvironment: 'node',
+  collectCoverageFrom: ['**/*.{js,jsx}', '!**/node_modules/**', '!**/dist/**'],
+  rootDir: '../../../',
   moduleNameMapper: {
     '^@src/(.*)$': '<rootDir>/src/$1',
   },
