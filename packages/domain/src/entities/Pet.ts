@@ -1,5 +1,5 @@
 import { BaseEntity } from '@chorros-associated/chorro-pets-common-domain';
-import { PetId } from '../valueobjects/PetId';
+import { PetId } from '../value-objects/PetId';
 
 interface PetProps {
   _name: string;
@@ -12,8 +12,7 @@ export class Pet extends BaseEntity<PetId> {
     private props: PetProps,
     id: string
   ) {
-    super();
-    super.id = new PetId(id);
+    super(new PetId(id));
   }
 
   public get age(): number {
