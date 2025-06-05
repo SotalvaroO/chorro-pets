@@ -1,7 +1,7 @@
-import { Primitive } from '../valueobjects/common-types';
-import { BaseId } from '../valueobjects/BaseId';
+import { BaseId } from '../value-objects/BaseId';
+import { GenericId } from '../value-objects/common-types';
 
-export abstract class BaseEntity<ID extends BaseId<Primitive>> {
+export abstract class BaseEntity<ID extends BaseId<GenericId>> {
   constructor(private _id: ID) {}
 
   public get id(): ID {

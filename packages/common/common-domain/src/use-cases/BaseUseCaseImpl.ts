@@ -11,9 +11,9 @@ export abstract class BaseUseCaseImpl<Request, Response> implements BaseUseCase<
 
   protected abstract executeUseCase(request: Request): Promise<Response>;
 
-  protected async validateRequest(request: Request): Promise<void> {}
+  protected async validateRequest(_request: Request): Promise<void> {}
 
-  protected async preProcess(request: Request): Promise<void> {}
+  protected async preProcess(_request: Request): Promise<void> {}
 
-  protected async postProcess(request: Request, response: Response): Promise<void> {}
+  protected async postProcess(_request: Request, _response: Response): Promise<void> {}
 }

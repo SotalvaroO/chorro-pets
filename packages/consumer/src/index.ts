@@ -19,13 +19,15 @@ class PetRepositoryImpl implements PetRepository {
 
 const repo: PetRepository = new PetRepositoryImpl();
 
-const useCase: BaseUseCase<Pet, Pet> = new CreatePetUseCase(repo);
+const useCase = new CreatePetUseCase(repo);
 
 useCase.execute(
-  new Pet({
-    _name: 'Frankini musolini',
-    _type: 'Dictador',
-    _age: 29,
-    id: 'DOM',
-  })
+  new Pet(
+    {
+      _name: 'Frankini musolini',
+      _type: 'Dictador',
+      _age: 29,
+    },
+    'DOM'
+  )
 );
