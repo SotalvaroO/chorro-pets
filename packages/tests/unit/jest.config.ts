@@ -1,11 +1,14 @@
-import type { JestConfigWithTsJest } from 'ts-jest';
+import { pathsToModuleNameMapper, type JestConfigWithTsJest } from 'ts-jest';
+import { compilerOptions } from '../../../tsconfig.base';
 
 const jestConfig: JestConfigWithTsJest = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  moduleNameMapper: {
-    '^@src/(.*)$': '<rootDir>/src/$1',
-  },
+  collectCoverageFrom: ['**/*.{js,jsx}', '!**/node_modules/**', '!**/dist/**'],
+  rootDir: '.',
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
+    prefix: '<rootDir>/../../../',
+  }),
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
